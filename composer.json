@@ -1,0 +1,21 @@
+{
+  "name": "blank-framework/interfaces",
+  "description": "Interfaces that are required for the Blank Frameworks",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Blank Framework",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "php": "^8.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "BlankFramework\\Interfaces\\": "src/"
+    }
+  }
+}
