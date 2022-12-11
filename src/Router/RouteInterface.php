@@ -2,11 +2,13 @@
 
 namespace BlankFramework\Interfaces\Router;
 
+use BlankFramework\Interfaces\Responses\ResponseInterface;
+
 interface RouteInterface {
     /**
      * This function returns the controller string that can be used to instantiate the class.
      *
-     * @return string
+     * @return class-string<RouteInterface>
      */
     public function getController(): string;
 
@@ -23,4 +25,6 @@ interface RouteInterface {
      * @return string
      */
     public function getMethod(): string;
+
+    public function execute(): ResponseInterface;
 }
