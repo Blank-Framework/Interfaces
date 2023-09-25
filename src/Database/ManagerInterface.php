@@ -4,5 +4,5 @@ namespace BlankFramework\Interfaces\Database;
 
 interface ManagerInterface
 {
-    public function getAdapter(): AdapterInterface;
+    public function getConnection(): \PDO;
 }
