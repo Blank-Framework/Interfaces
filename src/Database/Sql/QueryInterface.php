@@ -9,17 +9,18 @@ interface QueryInterface
      */
     public function select(array $columns = []): static;
     public function from(string $tableName, string $alias): static;
-    public function insert(string $tableName, string $alias): static;
-    public function update(string $tableName, string $alias): static;
-    public function delete(string $tableName, string $alias): static;
+    public function insert(string $tableName): static;
+    public function update(string $tableName): static;
+    public function delete(string $tableName): static;
     /**
      * @param mixed $value
      */
     public function set(string $columnName, $value): static;
     /**
-     * @param mixed $value
+     * @param array<string, string> $columns
+     * @param array<string, mixed> $values
      */
-    public function value(string $columnName, $value): static;
+    public function value(array $columns, array $values): static;
     /**
      * @param mixed $value
      */
