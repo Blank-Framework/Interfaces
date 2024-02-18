@@ -7,7 +7,7 @@ interface QueryInterface
     /**
      * @param string[] $columns List of all the columns that you would like to select
      */
-    public function select(array $columns = []): static;
+    public function select(string ...$columns): static;
     public function from(string $tableName, string $alias): static;
     public function insert(string $tableName): static;
     public function update(string $tableName): static;
