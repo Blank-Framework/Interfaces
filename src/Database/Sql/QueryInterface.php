@@ -45,15 +45,18 @@ interface QueryInterface
      * @param \Stringable[] $values
      */
     public function andWhereIn(string $columnName, array $values): QueryInterface;
-    public function join(string $type, string $tableName, string $on, ?string $alias = null): QueryInterface;
-    public function innerJoin(string $tableName, string $on, ?string $alias = null): QueryInterface;
-    public function leftJoin(string $tableName, string $on, ?string $alias = null): QueryInterface;
-    public function rightJoin(string $tableName, string $on, ?string $alias = null): QueryInterface;
+    public function join(string $type, string $tableName, string $on, string $alias): QueryInterface;
+    public function innerJoin(string $tableName, string $on, string $alias): QueryInterface;
+    public function leftJoin(string $tableName, string $on, string $alias): QueryInterface;
+    public function rightJoin(string $tableName, string $on, string $alias): QueryInterface;
 
-    public function fetchOne(bool $associative = true): array|\stdClass|null;
     /**
-     * @return array<\stdClass>|array<array<string, mixed>>
+     * @return array<string, mixed>
      */
-    public function fetchAll(bool $associative = true): array;
+    public function fetch(): ?array;
+    /**
+     * @return array<array<string, mixed>>
+     */
+    public function fetchAll(): array;
     public function execute(): int;
 }
