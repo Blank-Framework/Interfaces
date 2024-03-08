@@ -5,7 +5,7 @@ namespace BlankFramework\Interfaces\Database\Sql;
 interface QueryInterface
 {
     /**
-     * @param string[] $columns List of all the columns that you would like to select
+     * @param string $columns List of all the columns that you would like to select
      */
     public function select(string ...$columns): QueryInterface;
     public function from(string $tableName, string $alias): QueryInterface;
@@ -15,34 +15,35 @@ interface QueryInterface
     /**
      * @param mixed $value
      */
-    public function set(string $columnName, $value): QueryInterface;
+    public function set(string $columnName, $value, int $type = 0): QueryInterface;
     /**
      * @param array<string, string> $columns
      * @param array<string, mixed> $values
+     * @param array<string, mixed> $types
      */
-    public function value(array $columns, array $values): QueryInterface;
+    public function values(array $columns, array $values, array $types = []): QueryInterface;
     /**
      * @param mixed $value
      */
-    public function where(string $columnName, $value, string $operator = '='): QueryInterface;
+    public function where(string $columnName, $value, string $operator = '=', int $type = 0): QueryInterface;
     /**
-     * @param \Stringable[] $values
+     * @param string[]|int[]|float[] $values
      */
     public function whereIn(string $columnName, array $values): QueryInterface;
     /**
      * @param mixed $value
      */
-    public function orWhere(string $columnName, $value, string $operator = '='): QueryInterface;
+    public function orWhere(string $columnName, $value, string $operator = '=', int $type = 0): QueryInterface;
     /**
-     * @param \Stringable[] $values
+     * @param string[]|int[]|float[] $values
      */
     public function orWhereIn(string $columnName, array $values): QueryInterface;
     /**
      * @param mixed $value
      */
-    public function andWhere(string $columnName, $value, string $operator = '='): QueryInterface;
+    public function andWhere(string $columnName, $value, string $operator = '=', int $type = 0): QueryInterface;
     /**
-     * @param \Stringable[] $values
+     * @param string[]|int[]|float[] $values
      */
     public function andWhereIn(string $columnName, array $values): QueryInterface;
     public function join(string $type, string $tableName, string $on, string $alias): QueryInterface;
