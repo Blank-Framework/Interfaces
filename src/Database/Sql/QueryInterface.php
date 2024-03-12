@@ -54,10 +54,10 @@ interface QueryInterface
     /**
      * @return array<string, mixed>
      */
-    public function fetch(): ?array;
+    public function one(): ?array;
     /**
      * @return array<array<string, mixed>>
      */
-    public function fetchAll(): array;
+    public function all(): array;
     public function execute(): int;
 }
