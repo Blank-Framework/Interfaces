@@ -8,14 +8,16 @@ interface QueryInterface
      * @param string $columns List of all the columns that you would like to select
      */
     public function select(string ...$columns): QueryInterface;
-    public function from(string $tableName, string $alias): QueryInterface;
+    public function from(string $tableName, ?string $alias = null): QueryInterface;
     public function insert(string $tableName): QueryInterface;
     public function update(string $tableName): QueryInterface;
     public function delete(string $tableName): QueryInterface;
     /**
-     * @param mixed $value
+     * @param array<string, string> $columns
+     * @param array<string, mixed> $values
+     * @param array<string, mixed> $types
      */
-    public function set(string $columnName, $value, int $type = 0): QueryInterface;
+    public function set(array $columns, array $values, array $types = []): QueryInterface;
     /**
      * @param array<string, string> $columns
      * @param array<string, mixed> $values
